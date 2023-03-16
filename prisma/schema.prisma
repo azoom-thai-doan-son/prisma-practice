@@ -9,3 +9,31 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+enum UserRole {
+  ADMIN
+  USER
+  @@map("user_role")
+}
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  @@map("gender")
+}
+
+model User {
+  id          Int        @id @default(autoincrement())
+  username    String
+  email       String    @unique
+  phoneNumber String?    @unique @map("phone_number")
+  password    String
+  dateOfBirth DateTime? @db.Date() @map("date_of_birth")
+  gender      Gender
+  role        UserRole  @default(USER)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+
+}
