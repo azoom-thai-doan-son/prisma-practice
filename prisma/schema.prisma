@@ -3,6 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions", "extendedWhereUnique"]
+
 }
 
 datasource db {
@@ -24,7 +26,7 @@ enum Gender {
 
 model User {
   id          Int        @id @default(autoincrement())
-  username    String
+  username    String?
   email       String    @unique
   phoneNumber String?    @unique @map("phone_number")
   password    String

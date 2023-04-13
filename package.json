@@ -1,8 +1,13 @@
 {
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "devDependencies": {
-    "prisma": "4.11.0"
+    "prisma": "^3.11.1"
   },
   "dependencies": {
-    "@prisma/client": "4.11.0"
+    "@prisma/client": "^3.11.1",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.22"
   }
 }
